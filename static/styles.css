@@ -1,0 +1,31 @@
+:root {
+  --main-bg: #e5f9db;
+  --green: #a0d8b3;
+  --acc1: #a2a378;
+  --acc2: #83764f;
+  font-family: Rubik;
+
+}
+
+body {
+  background-color: var(--main-bg);
+}
+
+.nav a {
+  text-decoration: none;
+  color: black;
+  transition: .25s ease-in-out;
+}
+
+.nav a:hover {
+  color: var(--green);
+
+}
+
+.nav a:hover:after {
+  color: black;
+  transition: .2s ease;
+}
+
+
+
