@@ -1,0 +1,38 @@
+{%extends 'base.html' %}
+
+
+{% block head %}
+  <script type="text/javascript">
+    function feedToggle() {
+      const checked = document.getElementById("feeding").checked;
+      let amountForm = document.getElementById("amount-form");
+        amountForm.style.display = checked ? "block" : "None";
+    };
+    
+  </script>
+
+{%endblock%}
+
+{% block content %}
+<h1>New Report</h1>
+<form action="/report/submit" method="post">
+  <input type="time" name="time"/>
+  <label for="time">Time</label><br/>
+  <input type="checkbox" name="pee"/>
+  <label for="pee">Pee</label><br/>
+  <input type="checkbox" name="poo"/>
+  <label for="poo">&#x1F4A9</label><br/>
+  <input type="checkbox" name="feeding" id="feeding" onchange="feedToggle()"/>
+  <label for="feeding">Feeding</label><br/>
+  <div id="amount-form">
+    <label for="amount">Amount (mL)</label><br/>
+    <input type="number" value="amount"><br/>
+  </div>
+  <input type="checkbox" value="pump">
+  <label for="pump">Pump</label><br/>
+  <input type="submit" value="submit">
+  
+</form>
+{% endblock %}
+
+

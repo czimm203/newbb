@@ -11,14 +11,34 @@ body {
   background-color: var(--main-bg);
 }
 
+.vl {
+  border-left: 2px solid var(--acc1);
+  height: inherit;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  text-justify: middle;
+  padding: 1rem;
+  background-color: var(--green);
+  border-radius: 1rem;
+  vertical-align: baseline;
+}
 .nav a {
+  margin: 0 .5rem;
+  padding: 0 1em;
   text-decoration: none;
+  border-radius: 1em;
   color: black;
   transition: .25s ease-in-out;
+  text-align: center;
+  height: 80%;
 }
 
 .nav a:hover {
-  color: var(--green);
+  color: var(--acc2);
+  background-color: var(--main-bg);
 
 }
 
@@ -27,5 +47,11 @@ body {
   transition: .2s ease;
 }
 
+.main-button {
+  font-size: 1.5em;
+}
 
+#amount-form {
+  display: None;
+}
 
