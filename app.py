@@ -1,19 +1,19 @@
 from datetime import datetime
 from flask import Flask, render_template, request
+from pathlib import Path
 from . import db
 
-# db.init_db()
+name = Path(__file__).parent.name.capitalize()
 app = Flask(__name__)
 
 @app.route("/")
 def index():
     rows = db.select_data()
-    print(rows)
-    return render_template("index.html", rows = rows, marker = (" ","\u2705"))
+    return render_template("index.html", name = name, rows = rows, marker = (" ","\u2705"))
 
 @app.route("/report/")
 def report():
-    return render_template("report.html")
+    return render_template("report.html", name = name)
 
 @app.route("/report/submit", methods = ["POST"])
 def submit_report():
@@ -28,9 +28,7 @@ def submit_report():
                 'pump': False,
             }
 
-    print(form)
     for item in form.items():
-        print(item)
         match item:
             case ['id', i] if id != None:
                 data["id"] = int(i)
@@ -48,6 +46,5 @@ def submit_report():
                 data["pump"] = True
 
     row = db.create_row(data)
-    print(row)
     db.insert_data(row)
-    return render_template("submission.html")
+    return render_template("submission.html", name = name)
