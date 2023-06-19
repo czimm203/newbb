@@ -5,7 +5,7 @@ from . import db
 
 name = Path(__file__).parent.name.capitalize()
 app = Flask(__name__)
-
+#
 @app.route("/")
 def index():
     rows = db.select_data()
