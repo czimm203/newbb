@@ -1,4 +1,5 @@
 :root {
+
   --main-bg: #e5f9db;
   --green: #a0d8b3;
   --acc1: #a2a378;
@@ -13,7 +14,7 @@ body {
 
 .vl {
   border-left: 2px solid var(--acc1);
-  height: inherit;
+  height: parent;
 }
 
 .nav {
@@ -53,5 +54,40 @@ body {
 
 #amount-form {
   display: None;
+}
+
+.chart-app {
+  width: 80vw;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+table {
+  table-layout: fixed;
+  width: 90%;
+  border-collapse: collapse;
+  /* border: 2px solid black; */
+  border-radius: 1rem;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: var(--acc1);
+}
+
+thead {
+  font-size: 1.5em;
+}
+
+tr {
+  /* border: 2px solid black; */
+  /* border-radius: 1em; */
+  text-align: center;
+}
+
+tbody tr:nth-child(odd) {
+  background-color: var(--main-bg);
+}
+
+tbody tr td:nth-child(0) {
+  width: 40%;
 }
 

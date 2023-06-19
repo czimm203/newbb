@@ -2,6 +2,35 @@
 
 {% block content %}
 <h1>index</h1>
+
+<table>
+    <thead>
+        <tr>
+            <th>Time</th>
+            <th>Pee</th>
+            <th>&#x1F4A9</th>
+            <th>Feed</th>
+            <th>Amount (mL)</th>
+            <th>Pump</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for row in rows %}
+        <tr>
+            <td>{{row['date']}}</td>
+            <td>{{marker[row['pee']]}}</td>
+            <td>{{marker[row['poo']]}}</td>
+            <td>{{marker[row['feeding']]}}</td>
+            <td>{{row['amount']}}</td>
+            <td>{{marker[row['pump']]}}</td>
+            <td>
+                <button id="{{row['id']}}">update</button>
+            </td>
+        </tr>
+        {%endfor%}
+    </tbody>
+</table>
+
 {% endblock %}
 
 
