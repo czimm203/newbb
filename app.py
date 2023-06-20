@@ -1,4 +1,4 @@
-from datetime import datetime
+from datetime import datetime, timedelta
 from flask import Flask, render_template, request
 from pathlib import Path
 from newbb import db
@@ -9,7 +9,16 @@ app = Flask(__name__)
 @app.route("/")
 def index():
     rows = db.select_data()
-    return render_template("index.html", name = name, rows = rows, marker = (" ","\u2705"))
+    modded_rows = []
+    for row in rows:
+        d = {k:row[k] for k in row.keys()}
+        dt = datetime.strptime(d["date"],"%Y-%m-%dT%H:%M")
+        d['date'] = dt.strftime("%m/%d %H:%M")
+        modded_rows.append(d)
+    next_feed_dt = datetime.strptime(modded_rows[0]['date'], "%m/%d %H:%M")
+    next_feed = (next_feed_dt + timedelta(hours=2)).strftime("%m/%d %H:%M")
+    return render_template("index.html", name = name, rows = modded_rows,
+                           marker = (" ","\u2705"), next_feed = next_feed)
 
 @app.route("/report/")
 def report():
