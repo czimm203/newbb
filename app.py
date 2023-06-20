@@ -1,7 +1,7 @@
 from datetime import datetime
 from flask import Flask, render_template, request
 from pathlib import Path
-from . import db
+from newbb import db
 
 name = Path(__file__).parent.name.capitalize()
 app = Flask(__name__)
@@ -48,3 +48,6 @@ def submit_report():
     row = db.create_row(data)
     db.insert_data(row)
     return render_template("submission.html", name = name)
+
+if __name__ == "__main__":
+    app.run("127.0.0.1", 8080, debug=False)

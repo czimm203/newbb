@@ -14,7 +14,6 @@ class Row:
     id: int | None = None
 
 def create_row(data: dict[str, Any]) -> Row:
-    print(data)
     return Row(
                 date = data["date"],
                 poo = data["poo"],
@@ -44,7 +43,6 @@ def select_data(limit = 20) -> list[sqlite3.Row]:
     """
     cur.execute(sql, (str(limit),))
     res = cur.fetchall()
-    print(res[-1]['feeding'])
     conn.close()
     return res
 

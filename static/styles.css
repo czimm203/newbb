@@ -5,11 +5,16 @@
   --acc1: #a2a378;
   --acc2: #83764f;
   font-family: Rubik;
+  font-size: 1.5em;
 
 }
 
 body {
   background-color: var(--main-bg);
+}
+
+h1 {
+  padding-left: 1em;
 }
 
 .vl {
@@ -25,7 +30,11 @@ body {
   background-color: var(--green);
   border-radius: 1rem;
   vertical-align: baseline;
+  margin-left: auto;
+  margin-right: auto;
+  width: 90%;
 }
+
 .nav a {
   margin: 0 .5rem;
   padding: 0 1em;
